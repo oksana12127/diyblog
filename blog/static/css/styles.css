@@ -1,0 +1,14 @@
+h1{
+    font-family: Tahoma, serif;
+    font-size: 14px;
+    color: darkblue;;
+}
+
+.block{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 10px;
+    background-color: #ff6200;
+    box-shadow: 0 0 3px 3px #b1b1b1;
+}

@@ -1,0 +1,218 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+
+    <body class="blog-posts sidebar-collapse">
+    <div class="page-header header-filter header-small" data-parallax="true"
+         style="background-image: url({% static 'img/bg10.jpg' %}")>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+                    <h1>Сайт обо всех интересах детей</h1>
+
+                    <p>Welcome to <em>My Site</em></p>
+
+
+                    {#                    <p>My Blogs has the following record counts:</p>#}
+                    {#                    <ul>#}
+                    {#                        <li><strong>Blogs:</strong> {{ num_blogs }}</li>#}
+                    {#                        <li><strong>Blogers:</strong> {{ num_blogers }}</li>#}
+                    {#                        <li><strong>Comments:</strong> {{ num_comments }}</li>#}
+                    {#                    </ul>#}
+                    {##}
+                    {#                    <p>You have visited this page#}
+                    {#                        {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>#}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="container">
+            <div class="section">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-raised card-background"
+                             style="background-image: url('../static/img/examples/office2.jpg')">
+                            <div class="card-body">
+                                <h6 class="card-category text-info">Blogs</h6>
+                                <a href="{% url 'blogs' %}">
+                                    <h3 class="card-title">All Blogs Are Presented Here</h3>
+                                </a>
+                                <p class="card-description">Our blogs have different topics and issues...
+                                </p>
+                                <a href="{% url 'blogs' %}" class="btn btn-danger btn-round">
+                                    <i class="material-icons">format_align_left</i>
+                                    See More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card card-raised card-background"
+                             style="background-image: url('../static/img/examples/blog8.jpg')">
+                            <div class="card-body">
+                                <h6 class="card-category text-info">Bloggers</h6>
+                                <a href="{% url 'blogers' %}">
+                                    <h3 class="card-title">All Bloggers Are Presented Here</h3>
+                                    </a>
+                                    <p class="card-description">
+                                        Bloggers of our site...
+                                    </p>
+                                    <a href="{% url 'blogers' %}" class="btn btn-primary btn-round">
+                                        <i class="material-icons">format_align_left</i>See More
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card card-raised card-background"
+                         style="background-image: url('../static/img/examples/card-project6.jpg')">
+                        <div class="card-body">
+                            <h6 class="card-category text-info">My Blogs has the following record counts:</h6>
+                            <h3 class="card-title">
+                                <ul>
+                                    <li><strong>Blogs:</strong> {{ num_blogs }}</li>
+                                    <li><strong>Blogers:</strong> {{ num_blogers }}</li>
+                                    <li><strong>Comments:</strong> {{ num_comments }}</li>
+                                </ul>
+                            </h3>
+                            <p class="card-description">
+                                You have visited this page
+                                {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.
+                            </p>
+                            <a href="{% url 'blogs' %}" class="btn btn-warning btn-round">
+                                <i class="material-icons">subject</i> Read All Blogs
+                            </a>
+                            <a href="{% url 'blogers' %}" class="btn btn-white btn-just-icon btn-link" title="" rel="tooltip"
+                               data-original-title="All Bloggers">
+                                <i class="fa fa-get-pocket"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{#    <div class="team-5 section-image" style="background-image: url('../static/img/bg10.jpg')">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-md-6">#}
+{#                    <div class="card card-profile card-plain">#}
+{#                        <div class="row">#}
+{#                            <div class="col-md-5">#}
+{#                                <div class="card-header card-header-image">#}
+{#                                    <a href="#pablo">#}
+{#                                        <img class="img" src="../static/img/faces/card-profile1-square.jpg">#}
+{#                                    </a>#}
+{#                                    <div class="ripple-container"></div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col-md-7">#}
+{#                                <div class="card-body">#}
+{#                                    <h4 class="card-title">Vanya Plygach</h4>#}
+{#                                    <h6 class="card-category text-muted">Author of the Month</h6>#}
+{#                                    <p class="card-description">#}
+{#                                        Don't be scared of the truth because we need to restart the human foundation#}
+{#                                        in truth...#}
+{#                                    </p>#}
+{#                                </div>#}
+{#                                <div class="card-footer">#}
+{#                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">#}
+{#                                        <i class="fa fa-twitter"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">#}
+{#                                        <i class="fa fa-facebook-square"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">#}
+{#                                        <i class="fa fa-google"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-md-6">#}
+{#                    <div class="card card-profile card-plain">#}
+{#                        <div class="row">#}
+{#                            <div class="col-md-5">#}
+{#                                <div class="card-header card-header-image">#}
+{#                                    <a href="#pablo">#}
+{#                                        <img class="img" src="../static/img/faces/card-profile4-square.jpg">#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col-md-7">#}
+{#                                <div class="card-body">#}
+{#                                    <h4 class="card-title">Masha Plygach</h4>#}
+{#                                    <h6 class="card-category text-muted">Author of the Week</h6>#}
+{#                                    <p class="card-description">#}
+{#                                        Don't be scared of the truth because we need to restart the human foundation#}
+{#                                        in truth...#}
+{#                                    </p>#}
+{#                                </div>#}
+{#                                <div class="card-footer">#}
+{#                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">#}
+{#                                        <i class="fa fa-linkedin"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">#}
+{#                                        <i class="fa fa-facebook-square"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">#}
+{#                                        <i class="fa fa-dribbble"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#pablo" class="btn btn-just-icon btn-link btn-white">#}
+{#                                        <i class="fa fa-google"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="subscribe-line">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-md-6">#}
+{#                    <h3 class="title">Get Tips &amp; Tricks every Week!</h3>#}
+{#                    <p class="description">#}
+{#                        Join our newsletter and get news in your inbox every week! We hate spam too, so no worries#}
+{#                        about this.#}
+{#                    </p>#}
+{#                </div>#}
+{#                <div class="col-md-6">#}
+{#                    <div class="card card-plain card-form-horizontal">#}
+{#                        <div class="card-body">#}
+{#                            <form method="" action="">#}
+{#                                <div class="row">#}
+{#                                    <div class="col-md-8">#}
+{#                                        <div class="input-group">#}
+{#                                            <div class="input-group-prepend">#}
+{#                          <span class="input-group-text">#}
+{#                            <i class="material-icons">mail</i>#}
+{#                          </span>#}
+{#                                            </div>#}
+{#                                            <input type="text" class="form-control" placeholder="Your Email...">#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="col-md-4">#}
+{#                                        <button type="button" class="btn btn-primary btn-round btn-block">#}
+{#                                            Subscribe#}
+{#                                        </button>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </form>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    </div>#}
+    </body>
+
+{% endblock %}

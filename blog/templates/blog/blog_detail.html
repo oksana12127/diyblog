@@ -1,0 +1,320 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+
+    <body class="blog-post sidebar-collapse">
+
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url({% static 'img/bg5.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+
+                    <h3 class="title">Пост:</h3>
+                    <h1 class="title">{{ blog.title }}</h1>
+                    <h4></h4>
+                    <br>
+{#                    <p  class="btn btn-rose btn-round btn-lg">#}
+{#                        <i class="material-icons">format_align_left</i> {{ blog.title }}#}
+{#                    </p>#}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="container">
+            <div class="section section-text">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h3 class="title">Bloger:</h3>
+                        <p><a href="{% url 'bloger-detail' blog.author.pk %}">{{ blog.author }}</a></p>
+                        <!-- author detail link not yet defined -->
+                        <p><strong>Date:</strong> {{ blog.date }}</p>
+                        <p><strong>Summary:</strong></p>
+
+                        <div class="blockquote undefined">
+                            <p>
+                                &#x201C;{{ blog.summary }}&#x201D;
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="section section-blog-info">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="blog-tags">
+                                    Tags:
+                                    <span class="badge badge-primary badge-pill">Photography</span>
+                                    <span class="badge badge-primary badge-pill">Stories</span>
+                                    <span class="badge badge-primary badge-pill">Castle</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#pablo" class="btn btn-google btn-round float-right">
+                                    <i class="fa fa-google"></i> 232
+                                </a>
+                                <a href="#pablo" class="btn btn-twitter btn-round float-right">
+                                    <i class="fa fa-twitter"></i> 910
+                                </a>
+                                <a href="#pablo" class="btn btn-facebook btn-round float-right">
+                                    <i class="fa fa-facebook-square"></i> 872
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="card card-profile card-plain">
+                            <div class="row">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-comments">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <div class="media-area">
+
+
+                            <h3 class="title text-center">Comments</h3>
+
+
+                            {% for copy in blog.comment_set.all %}
+                                <hr>
+
+
+
+
+
+                                <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip"
+                                   title="Reply to Comment">
+                                    <i class="material-icons">reply</i> Reply
+                                </a>
+                                <a href="{% url 'likes' copy.pk %}" class="btn btn-danger btn-link float-right">
+                                    <i class="material-icons">favorite</i> {{ copy.likes }}
+                                </a>
+
+                                <p><strong>Data:</strong> {{ copy.moment }}</p>
+
+                                <p class="text-muted"><strong>Author:</strong> <a
+                                        class="media-heading">{{ copy.author }}</a></p>
+                                <p class="text-muted"><strong>Comment:</strong> {{ copy.summary }}</p>
+
+                            {% endfor %}
+
+
+                            {#                                <div class="media-body">#}
+                            {#                                    <h4 class="media-heading">Tina Andrew <small>&#xB7; 7 minutes ago</small></h4>#}
+                            {#                                    <h6 class="text-muted"></h6>#}
+                            {#                                    <p>Chance too good. God level bars. I&apos;m so proud of @LifeOfDesiigner #1 song in#}
+                            {#                                        the country. Panda! Don&apos;t be scared of the truth because we need to restart#}
+                            {#                                        the human foundation in truth I stand with the most humility. We are so#}
+                            {#                                        blessed!</p>#}
+                            {#                                    <div class="media-footer">#}
+                            {#                                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip"#}
+                            {#                                           title="Reply to Comment">#}
+                            {#                                            <i class="material-icons">reply</i> Reply#}
+                            {#                                        </a>#}
+                            {#                                        <a href="#pablo" class="btn btn-danger btn-link float-right">#}
+                            {#                                            <i class="material-icons">favorite</i> 243#}
+                            {#                                        </a>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                            <div class="media">#}
+                            {#                                <a class="float-left" href="#pablo">#}
+                            {#                                    <div class="avatar">#}
+                            {#                                        <img class="media-object" alt="Tim Picture"#}
+                            {#                                             src="../static'img/faces/card-profile1-square.jpg">#}
+                            {#                                    </div>#}
+                            {#                                </a>#}
+                            {#                                <div class="media-body">#}
+                            {#                                    <h4 class="media-heading">John Camber <small>&#xB7; Yesterday</small></h4>#}
+                            {#                                    <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff#}
+                            {#                                        coming soon. We will keep you posted for the latest news.</p>#}
+                            {#                                    <p> Don&apos;t forget, You&apos;re Awesome!</p>#}
+                            {#                                    <div class="media-footer">#}
+                            {#                                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip"#}
+                            {#                                           title="Reply to Comment">#}
+                            {#                                            <i class="material-icons">reply</i> Reply#}
+                            {#                                        </a>#}
+                            {#                                        <a href="#pablo" class="btn btn-link float-right">#}
+                            {#                                            <i class="material-icons">favorite</i> 25#}
+                            {#                                        </a>#}
+                            {#                                    </div>#}
+                            {#                                    <div class="media">#}
+                            {#                                        <a class="float-left" href="#pablo">#}
+                            {#                                            <div class="avatar">#}
+                            {#                                                <img class="media-object" alt="64x64"#}
+                            {#                                                     src="../static/img/faces/card-profile4-square.jpg">#}
+                            {#                                            </div>#}
+                            {#                                        </a>#}
+                            {#                                        <div class="media-body">#}
+                            {#                                            <h4 class="media-heading">Tina Andrew <small>&#xB7; 12 Hours Ago</small>#}
+                            {#                                            </h4>#}
+                            {#                                            <p>Hello guys, nice to have you on the platform! There will be a lot of#}
+                            {#                                                great stuff coming soon. We will keep you posted for the latest#}
+                            {#                                                news.</p>#}
+                            {#                                            <p> Don&apos;t forget, You&apos;re Awesome!</p>#}
+                            {#                                            <div class="media-footer">#}
+                            {#                                                <a href="#pablo" class="btn btn-primary btn-link float-right"#}
+                            {#                                                   rel="tooltip" title="Reply to Comment">#}
+                            {#                                                    <i class="material-icons">reply</i> Reply#}
+                            {#                                                </a>#}
+                            {#                                                <a href="#pablo" class="btn btn-link btn-secondary float-right">#}
+                            {#                                                    <i class="material-icons">favorite</i> 2#}
+                            {#                                                </a>#}
+                            {#                                            </div>#}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </div>#}
+                            <h3 class="title text-center">Post your comment</h3>
+                            {#                        <div class="media media-post">#}
+                            {#                            <a class="author float-left" href="#pablo">#}
+                            {#                                <div class="avatar">#}
+                            {#                                    <img class="media-object" alt="64x64"#}
+                            {#                                         src="../static/img/faces/card-profile6-square.jpg">#}
+                            {#                                </div>#}
+                            {#                            </a>#}
+                            {#                            <div class="media-body">#}
+                            {#                                <div class="form-group label-floating bmd-form-group">#}
+                            {#                                    <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Write#}
+                            {#                                        some nice stuff or nothing...</label>#}
+                            {#                                    <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>#}
+                            {#                                </div>#}
+                            {#                                <div class="media-footer">#}
+                            {#                                    <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post#}
+                            {#                                        Comment</a>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </div> <!-- end media-post -->#}
+                            {#                    </div>#}
+                            {#                </div>#}
+                            {#            </div>#}
+                            {#        </div>#}
+                            {#    </div>#}
+                            {#    <div class="section">#}
+                            {#        <div class="container">#}
+                            {#            <div class="row">#}
+                            {#                <div class="col-md-12">#}
+                            {#                    <h2 class="title text-center">Similar Stories</h2>#}
+                            {#                    <br>#}
+                            {#                    <div class="row">#}
+                            {#                        <div class="col-md-4">#}
+                            {#                            <div class="card card-blog">#}
+                            {#                                <div class="card-header card-header-image">#}
+                            {#                                    <a href="#pablo">#}
+                            {#                                        <img class="img img-raised" src="../static/img/examples/blog6.jpg">#}
+                            {#                                    </a>#}
+                            {#                                </div>#}
+                            {#                                <div class="card-body">#}
+                            {#                                    <h6 class="category text-info">Enterprise</h6>#}
+                            {#                                    <h4 class="card-title">#}
+                            {#                                        <a href="#pablo">Autodesk looks to future of 3D printing with Project Escher</a>#}
+                            {#                                    </h4>#}
+                            {#                                    <p class="card-description">#}
+                            {#                                        Like so many organizations these days, Autodesk is a company in transition. It#}
+                            {#                                        was until recently a traditional boxed software company selling licenses.<a#}
+                            {#                                            href="#pablo"> Read More </a>#}
+                            {#                                    </p>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </div>#}
+                            {#                        <div class="col-md-4">#}
+                            {#                            <div class="card card-blog">#}
+                            {#                                <div class="card-header card-header-image">#}
+                            {#                                    <a href="#pablo">#}
+                            {#                                        <img class="img img-raised" src="../static/img/examples/blog8.jpg">#}
+                            {#                                    </a>#}
+                            {#                                </div>#}
+                            {#                                <div class="card-body">#}
+                            {#                                    <h6 class="category text-success">#}
+                            {#                                        Startups#}
+                            {#                                    </h6>#}
+                            {#                                    <h4 class="card-title">#}
+                            {#                                        <a href="#pablo">Lyft launching cross-platform service this week</a>#}
+                            {#                                    </h4>#}
+                            {#                                    <p class="card-description">#}
+                            {#                                        Like so many organizations these days, Autodesk is a company in transition. It#}
+                            {#                                        was until recently a traditional boxed software company selling licenses.<a#}
+                            {#                                            href="#pablo"> Read More </a>#}
+                            {#                                    </p>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </div>#}
+                            {#                        <div class="col-md-4">#}
+                            {#                            <div class="card card-blog">#}
+                            {#                                <div class="card-header card-header-image">#}
+                            {#                                    <a href="#pablo">#}
+                            {#                                        <img class="img img-raised" src="../static/img/examples/blog7.jpg">#}
+                            {#                                    </a>#}
+                            {#                                </div>#}
+                            {#                                <div class="card-body">#}
+                            {#                                    <h6 class="category text-danger">#}
+                            {#                                        <i class="material-icons">trending_up</i> Enterprise#}
+                            {#                                    </h6>#}
+                            {#                                    <h4 class="card-title">#}
+                            {#                                        <a href="#pablo">6 insights into the French Fashion landscape</a>#}
+                            {#                                    </h4>#}
+                            {#                                    <p class="card-description">#}
+                            {#                                        Like so many organizations these days, Autodesk is a company in transition. It#}
+                            {#                                        was until recently a traditional boxed software company selling licenses.<a#}
+                            {#                                            href="#pablo"> Read More </a>#}
+                            {#                                    </p>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </div>#}
+                            {#                    </div>#}
+                            {#                </div>#}
+                            {#            </div>#}
+                            {#        </div>#}
+                            {#    </div>#}
+
+
+                            {#  <h1>Title: {{ blog.title }}</h1>#}
+
+                            {#  <p><strong>Bloger:</strong> <a href="{% url 'bloger-detail' blog.author.pk %}">{{ blog.author }}</a></p> <!-- author detail link not yet defined -->#}
+                            {#  <p><strong>Date:</strong> {{ blog.date }}</p>#}
+                            {#    <p><strong>Summary:</strong> {{ blog.summary }}</p>#}
+
+
+                            {#    <div style="margin-left:20px;margin-top:20px">#}
+                            {#        <h4>Comments</h4>#}
+                            {##}
+                            {##}
+                            {##}
+                            {##}
+                            {#        {% for copy in blog.comment_set.all %}#}
+                            {#            <hr>#}
+                            {##}
+                            {#            <p><strong>Data:</strong> {{ copy.moment }}</p>#}
+                            {#            <p class="text-muted"><strong>Author::</strong> {{ copy.author }}</p>#}
+                            {#            <p class="text-muted"><strong>Comment:</strong> {{ copy.summary }}</p>#}
+                            {#        {% endfor %}#}
+                            {##}
+                            {#        <p></p>#}
+
+                            {% if user.is_authenticated %}
+                                <H3><a href="{% url 'comment_create' blog.pk %}">Add comment</a></H3>
+
+                            {% else %}
+                                <h3><a href="{% url 'login' %}?next={{ request.path }}">Login</a> to add a new comment
+                                </h3>
+                            {% endif %}
+                            <p></p>
+
+                        </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+     </div>
+{% endblock %}
