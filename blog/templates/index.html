@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card card-raised card-background"
-                             style="background-image: url('../static/img/examples/office2.jpg')">
+                             style="background-image: url({% static 'img/examples/office2.jpg' %}")>
                             <div class="card-body">
                                 <h6 class="card-category text-info">Blogs</h6>
                                 <a href="{% url 'blogs' %}">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card card-raised card-background"
-                             style="background-image: url('../static/img/examples/blog8.jpg')">
+                             style="background-image: url({% static 'img/examples/blog8.jpg' %}")>
                             <div class="card-body">
                                 <h6 class="card-category text-info">Bloggers</h6>
                                 <a href="{% url 'blogers' %}">
